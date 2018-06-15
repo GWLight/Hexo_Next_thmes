@@ -1,0 +1,353 @@
+// CSS Style Guide: http://codeguide.co/#css
+
+
+
+$scheme    = hexo-config('scheme') ? hexo-config('scheme') : 'Muse';
+$variables = base $scheme custom;
+$mixins    = base $scheme custom;
+
+
+
+// Variables Layer
+// --------------------------------------------------
+for $variable in $variables
+  @import "_variables/" + $variable
+
+
+// Mixins Layer
+// --------------------------------------------------
+for $mixin in $mixins
+  @import "_mixins/" + $mixin;
+
+
+
+// Common Layer
+// --------------------------------------------------
+
+// Scaffolding
+@import "_common/scaffolding";
+
+// Layout
+@import "_common/outline";
+
+// Components
+@import "_common/components";
+
+
+// Schemes Layer
+// --------------------------------------------------
+@import "_schemes/" + $scheme;
+
+
+
+// Custom Layer position:移动属性absolute，固定：fixed
+// --------------------------------------------------
+@import "_custom/custom";
+
+.waifu {
+    position: fixed;
+    bottom: 80px;
+    left: 55px;
+	width: 135px;
+	height:210px;
+    z-index: 1;
+    font-size: 0;
+}
+
+@media (max-width: 768px) {
+    .waifu {
+        display: none;
+    }
+}
+// 调整对话框
+.waifu-tips {
+    opacity: 0;
+    width: 210px;
+    height: 60px;
+    margin: -80px -50px;
+    padding: 5px 10px;
+    border: 1px solid rgba(224, 186, 140, 0.62);
+    border-radius: 12px;
+    background-color: rgba(228, 213, 188, 0.5);
+    box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
+    font-size: 12px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: absolute;
+    animation-delay: 5s;
+    animation-duration: 50s;
+    animation-iteration-count: infinite;
+    animation-name: shake;
+    animation-timing-function: ease-in-out;
+}
+//	display: inline; 由于跨域原因暂时关闭图灵智能系统，等代理之后再开启
+.waifu-input-div {
+	width: 225px
+    border: 1px solid rgba(224, 186, 140, 0.62);
+    border-radius: 12px;
+    background-color: rgba(228, 213, 188, 0.5);
+    box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
+    height: 28px;
+    margin: 35px -50px;
+}
+
+.waifu-input-text {
+	
+    width: 180px;
+    height: 22px;
+    border: 0px solid rgba(224, 186, 140, 0.62);
+    background-color: rgba(228, 213, 188, 0.5);
+    box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
+    font-size: 12px;
+	outline: none;
+}
+
+.waifu-btn {
+	
+    height: 28px;
+    border: 0px solid rgba(224, 186, 140, 0.62);
+    background-color: rgba(228, 213, 188, 0.5);
+    box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
+    font-size: 12px;
+	outline: none;
+}
+.waifu #live2d{
+    position: relative;
+}
+
+.live2d {
+    width: 100px;
+    height: 175px;
+    top: 5px;
+    left: 17px;
+}
+@keyframes shake {
+    2% {
+        transform: translate(0.5px, -1.5px) rotate(-0.5deg);
+    }
+
+    4% {
+        transform: translate(0.5px, 1.5px) rotate(1.5deg);
+    }
+
+    6% {
+        transform: translate(1.5px, 1.5px) rotate(1.5deg);
+    }
+
+    8% {
+        transform: translate(2.5px, 1.5px) rotate(0.5deg);
+    }
+
+    10% {
+        transform: translate(0.5px, 2.5px) rotate(0.5deg);
+    }
+
+    12% {
+        transform: translate(1.5px, 1.5px) rotate(0.5deg);
+    }
+
+    14% {
+        transform: translate(0.5px, 0.5px) rotate(0.5deg);
+    }
+
+    16% {
+        transform: translate(-1.5px, -0.5px) rotate(1.5deg);
+    }
+
+    18% {
+        transform: translate(0.5px, 0.5px) rotate(1.5deg);
+    }
+
+    20% {
+        transform: translate(2.5px, 2.5px) rotate(1.5deg);
+    }
+
+    22% {
+        transform: translate(0.5px, -1.5px) rotate(1.5deg);
+    }
+
+    24% {
+        transform: translate(-1.5px, 1.5px) rotate(-0.5deg);
+    }
+
+    26% {
+        transform: translate(1.5px, 0.5px) rotate(1.5deg);
+    }
+
+    28% {
+        transform: translate(-0.5px, -0.5px) rotate(-0.5deg);
+    }
+
+    30% {
+        transform: translate(1.5px, -0.5px) rotate(-0.5deg);
+    }
+
+    32% {
+        transform: translate(2.5px, -1.5px) rotate(1.5deg);
+    }
+
+    34% {
+        transform: translate(2.5px, 2.5px) rotate(-0.5deg);
+    }
+
+    36% {
+        transform: translate(0.5px, -1.5px) rotate(0.5deg);
+    }
+
+    38% {
+        transform: translate(2.5px, -0.5px) rotate(-0.5deg);
+    }
+
+    40% {
+        transform: translate(-0.5px, 2.5px) rotate(0.5deg);
+    }
+
+    42% {
+        transform: translate(-1.5px, 2.5px) rotate(0.5deg);
+    }
+
+    44% {
+        transform: translate(-1.5px, 1.5px) rotate(0.5deg);
+    }
+
+    46% {
+        transform: translate(1.5px, -0.5px) rotate(-0.5deg);
+    }
+
+    48% {
+        transform: translate(2.5px, -0.5px) rotate(0.5deg);
+    }
+
+    50% {
+        transform: translate(-1.5px, 1.5px) rotate(0.5deg);
+    }
+
+    52% {
+        transform: translate(-0.5px, 1.5px) rotate(0.5deg);
+    }
+
+    54% {
+        transform: translate(-1.5px, 1.5px) rotate(0.5deg);
+    }
+
+    56% {
+        transform: translate(0.5px, 2.5px) rotate(1.5deg);
+    }
+
+    58% {
+        transform: translate(2.5px, 2.5px) rotate(0.5deg);
+    }
+
+    60% {
+        transform: translate(2.5px, -1.5px) rotate(1.5deg);
+    }
+
+    62% {
+        transform: translate(-1.5px, 0.5px) rotate(1.5deg);
+    }
+
+    64% {
+        transform: translate(-1.5px, 1.5px) rotate(1.5deg);
+    }
+
+    66% {
+        transform: translate(0.5px, 2.5px) rotate(1.5deg);
+    }
+
+    68% {
+        transform: translate(2.5px, -1.5px) rotate(1.5deg);
+    }
+
+    70% {
+        transform: translate(2.5px, 2.5px) rotate(0.5deg);
+    }
+
+    72% {
+        transform: translate(-0.5px, -1.5px) rotate(1.5deg);
+    }
+
+    74% {
+        transform: translate(-1.5px, 2.5px) rotate(1.5deg);
+    }
+
+    76% {
+        transform: translate(-1.5px, 2.5px) rotate(1.5deg);
+    }
+
+    78% {
+        transform: translate(-1.5px, 2.5px) rotate(0.5deg);
+    }
+
+    80% {
+        transform: translate(-1.5px, 0.5px) rotate(-0.5deg);
+    }
+
+    82% {
+        transform: translate(-1.5px, 0.5px) rotate(-0.5deg);
+    }
+
+    84% {
+        transform: translate(-0.5px, 0.5px) rotate(1.5deg);
+    }
+
+    86% {
+        transform: translate(2.5px, 1.5px) rotate(0.5deg);
+    }
+
+    88% {
+        transform: translate(-1.5px, 0.5px) rotate(1.5deg);
+    }
+
+    90% {
+        transform: translate(-1.5px, -0.5px) rotate(-0.5deg);
+    }
+
+    92% {
+        transform: translate(-1.5px, -1.5px) rotate(1.5deg);
+    }
+
+    94% {
+        transform: translate(0.5px, 0.5px) rotate(-0.5deg);
+    }
+
+    96% {
+        transform: translate(2.5px, -0.5px) rotate(-0.5deg);
+    }
+
+    98% {
+        transform: translate(-1.5px, -1.5px) rotate(-0.5deg);
+    }
+
+    0%, 100% {
+        transform: translate(0, 0) rotate(0);
+    }
+}
+// 调整小人菜单栏 right: 0px;
+.waifu-tool {
+    display: none;
+    color: #aaa;
+    bottom: 0px;
+    font-size: 14px;
+    position: absolute;
+    margin: auto;
+	left: 0px;
+	right: 0px;
+    overflow: auto;
+}
+.waifu:hover .waifu-tool {
+    display: block;
+}
+// cursor 鼠标样式
+.waifu-tool i {
+    display: inline;
+    cursor: pointer;
+    color: #5b6c7d;
+	margin: 5px;
+	left: 0px;
+	right: 0px;
+    line-height: 20px;
+    transition: 0.2s;
+}
+.waifu-tool i:hover {
+    color: #34495e;
+}
